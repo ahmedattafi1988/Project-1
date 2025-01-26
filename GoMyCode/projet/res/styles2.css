@@ -1,0 +1,14 @@
+.Box-1{background-color: rgb(239, 247, 9); border: 3px solid rgb(243, 23, 7)
+;
+margin: 20px 20px ;
+padding: 20px 40px;
+border: 10px double red ;
+color: black;}
+.baground-image{ 
+    height: 60vh;
+    color: rgb(250, 234, 14);
+    /* background-image: url(est.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background: linear-gradient( to left, red, rgb(0, 255, 34));
+}
