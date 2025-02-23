@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeling Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-image: url(background.jpg);
+            background-size: cover;
+            height: 180vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 120px;
+            overflow: scroll;
+            position: relative;
+            color: rgb(247, 11, 11);
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        header a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+        }
+        header a:hover {
+            transform: scale(1.1);
+        }
+        header img {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease-in-out;
+        }
+        header a:hover img {
+            transform: rotate(360deg) scale(1.2);
+        }
+        .title-container {
+        
+            text-align: center;
+            color: white;
+        }
+        .earth-container {
+            width: 20vw;
+            height: 20vw;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg') no-repeat center center/cover;
+            border-radius: 50%;
+            animation: rotateEarth 10s linear infinite;
+        }
+        @keyframes rotateEarth {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+
+        .signup-container {
+            margin-top: 20px; 
+            display: flex;
+            justify-content: center;
+        }
+        .signup-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .signup-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .signup-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            display: none;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .signin-link {
+            display: block;
+            margin-top: 10px;
+            font-size: 1em;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .signin-link:hover {
+            text-decoration: underline;
+        }
+
+        .citation {
+            margin: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        footer {
+            width: 100%;
+            padding: 5px 0;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 0.9em;
+        }
+
+        .card{
+            background-color: #fff;
+            padding: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .earth-container {
+                width: 40vw;
+                height: 40vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="showSection('home')"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Accueil">Accueil</a>
+            <a href="javascript:void(0)" onclick="showSection('citations')"><i class="fas fa-quote-right"></i>Citations</a>
+            <a href="javascript:void(0)" onclick="showSection('livres')"><i class="fas fa-book"></i>Livres</a>
+            <a href="javascript:void(0)" onclick="showSection('films')"><i class="fas fa-film"></i>Films</a>
+            <a href="javascript:void(0)" onclick="showSection('rencontres')"><i class="fas fa-handshake"></i>Rencontres</a>
+            <a href="javascript:void(0)" onclick="showSection('education')"><i class="fas fa-graduation-cap"></i>Éducation</a>
+            <a href="javascript:void(0)" onclick="showSection('live')"><i class="fas fa-video"></i>Live</a>
+            <a href="javascript:void(0)" onclick="showSection('game')"><i class="fas fa-gamepad"></i>Game</a>
+            <a href="javascript:void(0)" onclick="showSection('shopping')"><i class="fas fa-shopping-cart"></i>Shopping</a>
+        </div>
+    </header>
+
+    <!-- Section Accueil -->
+    <div id="home" class="section">
+        <div class="title-container">
+            <h1>GO MY WORLD</h1>
+            <p>Un univers où tout est possible.</p>
+        </div>
+        <div class="earth-container"></div>
+        <div class="signup-container">
+            <a href="javascript:void(0)" class="signup-btn" onclick="toggleForm()">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+        <div id="signup-form" class="form-container">
+            <input type="text" placeholder="Nom" id="nom" required>
+            <input type="text" placeholder="Prénom" id="prenom" required>
+            <input type="email" placeholder="Adresse Email" id="email" required>
+            <input type="password" placeholder="Mot de passe" id="password" required>
+            <button type="submit">S'inscrire</button>
+            <a href="javascript:void(0)" class="signin-link" onclick="toggleForm()">Déjà un compte ? Se connecter</a>
+        </div>
+    </div>
+
+    <!-- Section Citations -->
+    <div id="citations" class="section hidden">
+        <h1>Citations</h1>
+        <div class="citation">
+            <p>"La vie est ce que nous en faisons. Toujours ayez le courage d'avancer."</p>
+        </div>
+        <div class="citation">
+            <p>"La seule façon de faire un excellent travail est d'aimer ce que vous faites." - Steve Jobs</p>
+        </div>
+        <div class="citation">
+            <p>"Ce n'est pas la destination qui compte, mais le voyage." - Ralph Waldo Emerson</p>
+        </div>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+
+    <!-- Sections pour Livres, Films, Rencontres, Éducation, Live, Game, Shopping -->
+    <div id="livres" class="section hidden card">
+        <h1>Livres</h1>
+        <p>Découvrez des livres gratuits !</p>
+        <ul>
+            <li><a href="https://www.gutenberg.org/" target="_blank">Projet Gutenberg</a> - Des milliers de livres gratuits.</li>
+            <li><a href="https://www.feedbooks.com/" target="_blank">Feedbooks</a> - Livres gratuits et payants.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="films" class="section hidden card">
+        <h1>Films</h1>
+        <p>Regardez des films gratuitement !</p>
+        <ul>
+            <li><a href="https://www.youtube.com/" target="_blank">YouTube</a> - Films gratuits et courts métrages.</li>
+            <li><a href="https://www.tubi.tv/" target="_blank">Tubi</a> - Films et séries gratuits.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="rencontres" class="section hidden card">
+        <h1>Rencontres</h1>
+        <p>Rencontrez des gens intéressants !</p>
+        <ul>
+            <li><a href="https://www.meetup.com/" target="_blank">Meetup</a> - Trouvez des événements près de chez vous.</li>
+            <li><a href="https://www.bumble.com/" target="_blank">Bumble</a> - Rencontres amicales ou amoureuses.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="education" class="section hidden card">
+        <h1>Éducation</h1>
+        <p>Accédez à des ressources éducatives !</p>
+        <ul>
+            <li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a> - Cours gratuits en ligne.</li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a> - Cours universitaires gratuits.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="live" class="section hidden card">
+        <h1>Live</h1>
+        <p>Regardez des vidéos en direct !</p>
+        <ul>
+            <li><a href="https://www.twitch.tv/" target="_blank">Twitch</a> - Streaming en direct.</li>
+            <li><a href="https://www.youtube.com/live" target="_blank">YouTube Live</a> - Événements en direct.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="game" class="section hidden card">
+        <h1>Game</h1>
+        <p>Jouez à des jeux gratuits !</p>
+        <ul>
+            <li><a href="https://www.crazygames.com/" target="_blank">CrazyGames</a> - Jeux en ligne gratuits.</li>
+            <li><a href="https://www.miniclip.com/" target="_blank">Miniclip</a> - Jeux populaires gratuits.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+    <div id="shopping" class="section hidden card">
+        <h1>Shopping</h1>
+        <p>Faites du shopping en ligne !</p>
+        <ul>
+            <li><a href="https://www.amazon.fr/" target="_blank">Amazon</a> - Achats en ligne.</li>
+            <li><a href="https://www.ebay.fr/" target="_blank">eBay</a> - Enchères et achats.</li>
+        </ul>
+        <button onclick="showSection('home')" style="margin-top: 20px;">Retour à l'accueil</button>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.add('hidden'));
+            const sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.remove('hidden');
+        }
+
+        function toggleForm() {
+            const form = document.getElementById('signup-form');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.querySelector('#signup-form button').addEventListener('click', function (e) {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (nom && prenom && email && password) {
+                alert(`Merci ${prenom} ${nom}, votre inscription est réussie !`);
+                toggleForm(); // Fermer le formulaire
+            } else {
+                alert('Veuillez remplir tous les champs.');
+            }
+        });
+    </script>
+
+    <footer>
+        <p>© 2025 GoMyWorld. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

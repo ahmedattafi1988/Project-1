@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeling Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom right, skyblue, lightblue);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        header a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+        }
+        header a:hover {
+            transform: scale(1.1);
+        }
+        header img {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease-in-out;
+        }
+        header a:hover img {
+            transform: rotate(360deg) scale(1.2);
+        }
+        .title-container {
+            margin-top: 10%;
+            text-align: center;
+        }
+        .earth-container {
+            margin-top: 20px; /* Ajouté un espacement entre la div du texte et la div de la Terre */
+            width: 20vw;
+            height: 20vw;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg') no-repeat center center/cover;
+            border-radius: 50%;
+            animation: rotateEarth 10s linear infinite;
+        }
+        @keyframes rotateEarth {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+
+        /* Nouvelle div pour le bouton Sign Up */
+        .signup-container {
+            margin-top: 20px; /* Espacement entre la Terre et le bouton */
+            display: flex;
+            justify-content: center;
+        }
+        .signup-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .signup-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .signup-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            header a {
+                font-size: 1em;
+            }
+            .menu {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="showSection('home')"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Accueil">Accueil</a>
+            <a href="javascript:void(0)" onclick="showSection('citations')"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991128.png" alt="Citation">Citations</a>
+            <a href="javascript:void(0)" onclick="showSection('livres')"><img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Livre">Livres</a>
+            <a href="javascript:void(0)" onclick="showSection('films')"><img src="https://cdn-icons-png.flaticon.com/512/870/870910.png" alt="Film">Films</a>
+            <a href="javascript:void(0)" onclick="showSection('rencontres')"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135687.png" alt="Rencontre">Rencontres</a>
+            <a href="javascript:void(0)" onclick="showSection('education')"><img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" alt="Éducation">Éducation</a>
+            <a href="javascript:void(0)" onclick="showSection('live')"><img src="https://cdn-icons-png.flaticon.com/512/954/954591.png" alt="Live" style="width: 14px; height: 14px; border-radius: 50%; background: red;">Live</a>
+            <a href="javascript:void(0)" onclick="showSection('game')"><img src="https://cdn-icons-png.flaticon.com/512/2965/2965333.png" alt="Game">Game</a>
+            <a href="javascript:void(0)" onclick="showSection('shopping')"><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Shopping">Shopping</a>
+        </div>
+    </header>
+
+    <!-- Section Accueil -->
+    <div id="home" class="section">
+        <div class="title-container">
+            <h1>GO MY WORLD</h1>
+            <p>Un univers où tout est possible.</p>
+        </div>
+        <div class="earth-container"></div>
+
+        <!-- Nouvelle div avec icône Sign Up -->
+        <div class="signup-container">
+            <a href="javascript:void(0)" class="signup-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" alt="Sign Up">Sign Up
+            </a>
+        </div>
+    </div>
+
+    <!-- Section Citations (exemple) -->
+    <div id="citations" class="section hidden">
+        <h1>Citations</h1>
+        <p>Les meilleures citations pour vous inspirer.</p>
+    </div>
+
+    <!-- Section Livres (exemple) -->
+    <div id="livres" class="section hidden">
+        <h1>Livres</h1>
+        <p>Les livres que vous devriez lire absolument.</p>
+    </div>
+
+    <!-- Section Films (exemple) -->
+    <div id="films" class="section hidden">
+        <h1>Films</h1>
+        <p>Films à voir absolument !</p>
+    </div>
+
+    <script>
+        // Fonction pour afficher la section demandée
+        function showSection(sectionId) {
+            // Cacher toutes les sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.add('hidden'));
+
+            // Afficher la section demandée
+            const sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

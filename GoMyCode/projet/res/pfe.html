@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme Éducative</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #007BFF, #28a745); /* Dégradé bleu -> vert */
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Style de l'image */
+        .logo {
+            width: 80px; /* Ajuste la taille */
+            height: 80px;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 50px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="esperance.jpg" alt="">
+        <h1>Bienvenue sur ma plateforme éducative</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Cours</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p>Apprends facilement avec nos cours en ligne.</p>
+        <button onclick="afficherMessage()">Clique ici</button>
+    </main>
+
+    <footer>
+        <p>© 2025 - Mon site éducatif attafi .tn</p>
+    </footer>
+
+    <script>
+        function afficherMessage() {
+            alert("Bienvenue sur la plateforme éducative de l esperance!");
+        }
+    </script>
+</body>
+</html>
